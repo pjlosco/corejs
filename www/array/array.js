@@ -19,9 +19,13 @@ ArrayExercise = function(test) {
   // The anonymous function below should return an array of users from
   // the TEST DATA above that only includes users under the age of 18.
   test.confirm(function() {
-
-    // Your code here.
-
+    var answer = new Array();
+    users.forEach(function(val,index,arr) {
+      if (val.age < 18) {
+        answer.push(val);
+      }
+    });
+    return answer;
   });
 
   /****************************************************************************/
@@ -31,9 +35,11 @@ ArrayExercise = function(test) {
   // The strings should be all of the usernames from the TEST DATA
   // above, in the same order.
   test.confirm(function() {
-
-    // Your code here.
-
+    var answer = new Array();
+    users.forEach(function(val,index,arr) {
+        answer.push(val.username);
+    });
+    return answer;
   });
 
   /****************************************************************************/
@@ -43,8 +49,10 @@ ArrayExercise = function(test) {
   // above (TEST DATA) in reverse order.  Do not use the built-in
   // reverse function.
   test.confirm(function() {
-
-    // Your code here.
-
+    var answer = new Array();
+    for (var i = users.length - 1; i >= 0; i--) {
+      answer.push(users[i]);
+    };
+    return answer;
   });
 };
