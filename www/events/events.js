@@ -12,4 +12,19 @@
 
   // Your code here.
 
+  var clicker1 = document.querySelector("#container ul li:nth-child(1) button");
+  var counter1 = document.querySelector("#container ul li:nth-child(1) span");
+
+  var clicker2 = document.querySelector("");
+  var counter2 = document.querySelector("");
+  
+  var clicker3 = document.querySelector("");
+  var counter3 = document.querySelector("");
+  
+  var clicker4 = document.querySelector("");
+  var counter4 = document.querySelector("");
+  
+  var clicker5 = document.querySelector("");
+  var counter5 = document.querySelector("");
+
 })();

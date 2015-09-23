@@ -52,7 +52,7 @@ ArrayExercise = function(test) {
     var answer = new Array();
     for (var i = users.length - 1; i >= 0; i--) {
       answer.push(users[i]);
-    };
+    }
     return answer;
   });
 };

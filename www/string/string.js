@@ -17,8 +17,21 @@
  *
  *   "foo pi xx" -> "foo 3.14 xx 2"
  */
-processString = function(input) {
+var processString = function(input) {
+  var today = (new Date()).toDateString();
+  var count = 0;
 
-  // Your code here.
+  var result = input.replace(/\b\w+\b/g, function(word) {
+    count += (word.match(/x/gi) || []).length;
 
+    if (word === "today" || word === "Today") {
+	   return today;
+    } else if (word === "pi" || word === "PI") {
+      return "3.14";
+    } else {
+        return word;
+    }
+  });
+
+  return result + " " + count;
 };
