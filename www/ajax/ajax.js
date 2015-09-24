@@ -18,6 +18,33 @@
 // artist ID.)
 (function() {
 
+  var artistsDetails = [];
+
   // Your code here.
+  var loadContentButton = document.querySelector("#loadContent");
+  loadContentButton.addEventListener("click", function(event) {
+    
+    var req = new XMLHttpRequest(); 
+
+    req.addEventListener("load", function(e) { 
+      if (req.status == 200) {
+        var data = JSON.parse(req.responseText);
+        // break out artists
+        for(var index = 0; index < data.length; index++) {
+          artistsDetails.push({
+            id: data[index].id,
+            artistName: data[index].name,
+            formationYear: data[index].formation_year,
+            website: data[index].website
+          });
+        }
+
+        // TODO
+      }
+    });
+
+    req.open("GET", "/api/artists");
+    req.send(null);
+  });
 
 })();

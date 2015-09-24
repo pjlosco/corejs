@@ -10,21 +10,46 @@
 // all other counters.
 (function() {
 
-  // Your code here.
+  var totalClicks = 0;
 
-  var clicker1 = document.querySelector("#container ul li:nth-child(1) button");
-  var counter1 = document.querySelector("#container ul li:nth-child(1) span");
+  var clickers = [];
+  clickers.push({
+    clicker: document.querySelector("#container ul li:nth-child(1) button"),
+    counter: document.querySelector("#container ul li:nth-child(1) span")
+  });
+  clickers.push({
+    clicker: document.querySelector("#container ul li:nth-child(2) button"),
+    counter: document.querySelector("#container ul li:nth-child(2) span")
+  });
+  clickers.push({
+    clicker: document.querySelector("body p:nth-child(3) button"),
+    counter: document.querySelector("body p:nth-child(3) span")
+  });
+  clickers.push({
+    clicker: document.querySelector("body p:nth-child(4) span:nth-child(1)"),
+    counter: document.querySelector("body p:nth-child(4) span:nth-child(2)")
+  });
+  clickers.push({
+    clicker: document.querySelector("body p:nth-child(5) a"),
+    counter: document.querySelector("body p:nth-child(5) span")
+  });
 
-  var clicker2 = document.querySelector("");
-  var counter2 = document.querySelector("");
+  function counterTrigger (clicker, counter) {
+    clicker.addEventListener("click", function(event) {
+      currentCount = Number(counter.innerText);
+      counter.innerText = currentCount + 1;
+      totalClicks++;
+      body.innerText = "Total Clicks: " + totalClicks;
+      event.preventDefault();
+    });
+  }
   
-  var clicker3 = document.querySelector("");
-  var counter3 = document.querySelector("");
-  
-  var clicker4 = document.querySelector("");
-  var counter4 = document.querySelector("");
-  
-  var clicker5 = document.querySelector("");
-  var counter5 = document.querySelector("");
+  clickers.forEach(function (item, index, array) {
+    counterTrigger(item.clicker, item.counter);
+  });
+
+  var body = document.body.appendChild(document.createElement("h2"));
+  body.innerText = "Total Clicks: " + totalClicks;
 
 })();
+
